@@ -1,0 +1,119 @@
+.history{
+
+    min-height:100vh;
+
+    background:#F4F8FD;
+
+    padding:30px 20px 100px;
+
+}
+
+.history h1{
+
+    text-align:center;
+
+    color:#2563EB;
+
+    margin-bottom:10px;
+
+    font-size:36px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#64748B;
+
+    margin-bottom:35px;
+
+}
+
+.empty{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:50px 30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.empty h2{
+
+    color:#2563EB;
+
+    margin-bottom:15px;
+
+}
+
+.empty p{
+
+    color:#64748B;
+
+    line-height:28px;
+
+}
+
+.history-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.history-row{
+
+    display:flex;
+
+    align-items:center;
+
+    margin:15px 0;
+
+}
+
+.icon{
+
+    font-size:24px;
+
+    color:#2563EB;
+
+    margin-right:18px;
+
+}
+
+.history-row span{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}
+
+.history-row h3{
+
+    color:#1E293B;
+
+    margin-top:4px;
+
+}

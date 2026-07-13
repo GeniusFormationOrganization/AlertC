@@ -1,0 +1,145 @@
+.tracking{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#F4F8FD;
+
+padding:20px;
+
+}
+
+.trackingCard{
+
+width:450px;
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+animation:fade .7s;
+
+}
+
+.trackingCard h1{
+
+text-align:center;
+
+color:#2563EB;
+
+margin-bottom:10px;
+
+}
+
+.trackingCard p{
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:30px;
+
+}
+
+.trackingCard label{
+
+display:block;
+
+margin-top:15px;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+color:#1E293B;
+
+}
+
+.trackingCard input{
+
+width:100%;
+
+padding:15px;
+
+border-radius:12px;
+
+border:1px solid #d1d5db;
+
+font-size:16px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.trackingCard input:focus{
+
+border:1px solid #2563EB;
+
+box-shadow:0 0 10px rgba(37,99,235,.2);
+
+}
+
+.trackingCard button{
+
+width:100%;
+
+margin-top:35px;
+
+padding:16px;
+
+background:#2563EB;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.trackingCard button:hover{
+
+background:#1D4ED8;
+
+transform:translateY(-2px);
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
