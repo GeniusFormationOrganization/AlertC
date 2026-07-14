@@ -1,6 +1,6 @@
 .tracking{
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 
@@ -8,119 +8,145 @@ justify-content:center;
 
 align-items:center;
 
-background:#F4F8FD;
+padding:30px;
 
-padding:20px;
+background:var(--background);
 
-}
-
-.trackingCard{
-
-width:450px;
-
-background:white;
-
-padding:40px;
-
-border-radius:25px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-animation:fade .7s;
+transition:.35s;
 
 }
 
-.trackingCard h1{
+.tracking-card{
+
+width:100%;
+
+max-width:520px;
+
+background:var(--card);
+
+padding:45px;
+
+border-radius:28px;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+animation:fade .8s;
+
+}
+
+.tracking-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.tracking-header{
 
 text-align:center;
 
-color:#2563EB;
-
-margin-bottom:10px;
+margin-bottom:35px;
 
 }
 
-.trackingCard p{
+.tracking-logo{
 
-text-align:center;
+font-size:70px;
 
-color:#666;
+color:var(--primary);
 
-margin-bottom:30px;
+margin-bottom:20px;
 
 }
 
-.trackingCard label{
+.tracking-header h1{
 
-display:block;
+font-size:34px;
 
-margin-top:15px;
+color:var(--text);
 
-margin-bottom:8px;
+margin-bottom:12px;
+
+}
+
+.tracking-header p{
+
+color:var(--text-light);
+
+line-height:28px;
+
+}
+
+.input-group{
+
+margin-bottom:25px;
+
+}
+
+.input-group label{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
 
 font-weight:600;
 
-color:#1E293B;
+margin-bottom:10px;
+
+color:var(--text);
 
 }
 
-.trackingCard input{
+.input-group svg{
+
+color:var(--primary);
+
+}
+
+.input-group input{
 
 width:100%;
-
-padding:15px;
-
-border-radius:12px;
-
-border:1px solid #d1d5db;
-
-font-size:16px;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.trackingCard input:focus{
-
-border:1px solid #2563EB;
-
-box-shadow:0 0 10px rgba(37,99,235,.2);
-
-}
-
-.trackingCard button{
-
-width:100%;
-
-margin-top:35px;
 
 padding:16px;
 
-background:#2563EB;
+border-radius:16px;
 
-color:white;
+border:1px solid var(--border);
 
-border:none;
+background:var(--card);
 
-border-radius:12px;
+color:var(--text);
 
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
+font-size:16px;
 
 transition:.3s;
 
+outline:none;
+
 }
 
-.trackingCard button:hover{
+.input-group input:focus{
 
-background:#1D4ED8;
+border-color:var(--primary);
 
-transform:translateY(-2px);
+box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+.primary-btn{
+
+width:100%;
+
+padding:18px;
+
+margin-top:15px;
+
+font-size:18px;
 
 }
 
@@ -139,6 +165,34 @@ to{
 opacity:1;
 
 transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.tracking{
+
+padding:20px;
+
+}
+
+.tracking-card{
+
+padding:30px 25px;
+
+}
+
+.tracking-header h1{
+
+font-size:28px;
+
+}
+
+.tracking-logo{
+
+font-size:60px;
 
 }
 

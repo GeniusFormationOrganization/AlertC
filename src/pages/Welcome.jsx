@@ -10,24 +10,34 @@ function Welcome() {
 
     <div className="welcome">
 
-      <div className="card">
+      <div className="welcome-card">
 
         <img
           src={logo}
-          className="welcomeLogo"
           alt="AlertC"
+          className="welcome-logo"
         />
 
-        <h1>Bienvenue sur AlertC</h1>
+        <h1>
+
+          Bienvenue sur AlertC
+
+        </h1>
 
         <p>
 
-          Anticipez les coupures d'électricité avant qu'elles ne surviennent.
+          Suivez facilement votre crédit d'électricité,
+          anticipez les coupures et recevez des alertes
+          intelligentes avant la fin de votre recharge.
 
         </p>
 
         <button
+
+          className="primary-btn"
+
           onClick={() => navigate("/tracking")}
+
         >
 
           Commencer

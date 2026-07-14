@@ -1,32 +1,215 @@
 :root{
 
+  /* Couleurs */
+
   --primary:#2563EB;
+  --primary-light:#3B82F6;
   --secondary:#38BDF8;
 
   --success:#22C55E;
   --warning:#F59E0B;
   --danger:#EF4444;
 
-  --background:#F4F8FD;
+  /* Thème clair */
 
+  --background:#F4F8FD;
+  --surface:#FFFFFF;
   --card:#FFFFFF;
 
   --text:#1E293B;
-
   --text-light:#64748B;
 
-  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --border:#E2E8F0;
 
-  --radius:20px;
+  /* Ombres */
+
+  --shadow:0 10px 25px rgba(15,23,42,.08);
+  --shadow-hover:0 20px 40px rgba(15,23,42,.12);
+
+  /* Rayons */
+
+  --radius:22px;
+
+  /* Transition */
+
+  --transition:.3s ease;
+
+}
+
+/* =======================
+      MODE SOMBRE
+======================= */
+
+body.dark{
+
+  --background:#0F172A;
+
+  --surface:#1E293B;
+
+  --card:#1E293B;
+
+  --text:#F8FAFC;
+
+  --text-light:#CBD5E1;
+
+  --border:#334155;
+
+  --shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+/* =======================
+      RESET
+======================= */
+
+*{
+
+  margin:0;
+
+  padding:0;
+
+  box-sizing:border-box;
+
+}
+
+html{
+
+  scroll-behavior:smooth;
 
 }
 
 body{
 
-background:var(--background);
+  background:var(--background);
 
-color:var(--text);
+  color:var(--text);
 
-font-family:'Poppins',sans-serif;
+  font-family:"Poppins",sans-serif;
+
+  transition:background .35s,color .35s;
+
+}
+
+/* =======================
+      LIENS
+======================= */
+
+a{
+
+  text-decoration:none;
+
+  color:inherit;
+
+}
+
+/* =======================
+      IMAGES
+======================= */
+
+img{
+
+  max-width:100%;
+
+  display:block;
+
+}
+
+/* =======================
+      BOUTONS
+======================= */
+
+button{
+
+  font-family:"Poppins",sans-serif;
+
+  border:none;
+
+  cursor:pointer;
+
+  transition:var(--transition);
+
+}
+
+button:hover{
+
+  transform:translateY(-2px);
+
+}
+
+/* =======================
+      INPUTS
+======================= */
+
+input{
+
+  width:100%;
+
+  font-family:"Poppins",sans-serif;
+
+  outline:none;
+
+}
+
+/* =======================
+      CARDS
+======================= */
+
+.card{
+
+  background:var(--card);
+
+  border-radius:var(--radius);
+
+  box-shadow:var(--shadow);
+
+  transition:var(--transition);
+
+}
+
+.card:hover{
+
+  box-shadow:var(--shadow-hover);
+
+}
+
+/* =======================
+      TITRES
+======================= */
+
+h1,h2,h3,h4{
+
+  color:var(--text);
+
+}
+
+p{
+
+  color:var(--text-light);
+
+}
+
+/* =======================
+      CONTAINER
+======================= */
+
+.container{
+
+  width:min(1200px,95%);
+
+  margin:auto;
+
+}
+
+/* =======================
+      RESPONSIVE
+======================= */
+
+@media(max-width:768px){
+
+.container{
+
+width:92%;
+
+}
 
 }

@@ -3,7 +3,8 @@ import {
   FaWallet,
   FaCalendarAlt,
   FaRedo,
-  FaClock
+  FaClock,
+  FaBolt
 } from "react-icons/fa";
 
 import BottomNav from "../components/BottomNav";
@@ -23,24 +24,37 @@ function Dashboard() {
 
       <div className="dashboard">
 
-        <div className="empty-card">
+        <div className="dashboard-container">
 
-          <h2>Aucun suivi actif</h2>
+          <div className="empty-card">
 
-          <p>
+            <FaBolt className="empty-icon"/>
 
-            Commencez par enregistrer une recharge.
+            <h2>Aucun suivi actif</h2>
 
-          </p>
+            <p>
 
-          <button
-            className="primary-btn"
-            onClick={() => navigate("/tracking")}
-          >
-            Commencer
-          </button>
+              Vous n'avez pas encore enregistré de recharge.
+              Commencez maintenant pour suivre votre consommation.
+
+            </p>
+
+            <button
+              className="primary-btn"
+              onClick={() => navigate("/tracking")}
+            >
+
+              <FaRedo />
+
+              Commencer
+
+            </button>
+
+          </div>
 
         </div>
+
+        <BottomNav/>
 
       </div>
 
@@ -49,28 +63,45 @@ function Dashboard() {
   }
 
   const debut = new Date(dateRecharge);
+
   const aujourdhui = new Date();
 
   const joursEcoules = Math.floor(
+
     (aujourdhui - debut) / (1000 * 60 * 60 * 24)
+
   );
 
-  const joursRestants = Math.max(jours - joursEcoules, 0);
+  const joursRestants = Math.max(
+
+    jours - joursEcoules,
+
+    0
+
+  );
 
   const pourcentage = Math.round(
+
     (joursRestants / jours) * 100
+
   );
 
   const dateFin = new Date(debut);
 
-  dateFin.setDate(dateFin.getDate() + jours);
+  dateFin.setDate(
+
+    dateFin.getDate() + jours
+
+  );
 
   let statut = "Crédit suffisant";
+
   let couleur = "#22C55E";
 
   if (joursRestants <= 3) {
 
     statut = "Attention : il reste environ 3 jours.";
+
     couleur = "#F59E0B";
 
   }
@@ -78,6 +109,7 @@ function Dashboard() {
   if (joursRestants <= 2) {
 
     statut = "Attention : il reste environ 2 jours.";
+
     couleur = "#F97316";
 
   }
@@ -85,6 +117,7 @@ function Dashboard() {
   if (joursRestants <= 1) {
 
     statut = "Urgent : rechargez votre crédit.";
+
     couleur = "#EF4444";
 
   }
@@ -92,6 +125,7 @@ function Dashboard() {
   if (joursRestants === 0) {
 
     statut = "Votre crédit est estimé terminé.";
+
     couleur = "#DC2626";
 
   }
@@ -100,107 +134,193 @@ function Dashboard() {
 
     <div className="dashboard">
 
-      <h1>⚡ AlertC</h1>
+      <div className="dashboard-container">
 
-      <p className="subtitle">
+        <div className="dashboard-header">
 
-        Tableau de bord
+          <div>
 
-      </p>
+            <h1>
 
-      <div className="progress-card">
+              ⚡ Tableau de bord
+
+            </h1>
+
+            <p>
+
+              Suivi intelligent de votre crédit
+
+            </p>
+
+          </div>
+
+        </div>
+
+        <div className="dashboard-grid">
+
+          <div className="progress-card">
+
+            <div
+
+              className="progress-ring"
+
+              style={{
+
+                background: `conic-gradient(
+
+                  var(--primary)
+
+                  ${pourcentage * 3.6}deg,
+
+                  var(--border)
+
+                  0deg
+
+                )`
+
+              }}
+
+            >
+
+              <div className="progress-center">
+
+                <h2>
+
+                  {pourcentage}%
+
+                </h2>
+
+                <span>
+
+                  restant
+
+                </span>
+
+              </div>
+
+            </div>
+
+            <h3>
+
+              {joursRestants} jour(s)
+
+            </h3>
+
+            <p>
+
+              avant la fin estimée
+
+            </p>
+
+          </div>
+
+          <div className="info-card">
+
+            <div className="row">
+
+              <FaWallet className="icon"/>
+
+              <div>
+
+                <span>
+
+                  Montant
+
+                </span>
+
+                <h4>
+
+                  {montant} FCFA
+
+                </h4>
+
+              </div>
+
+            </div>
+
+            <div className="row">
+
+              <FaCalendarAlt className="icon"/>
+
+              <div>
+
+                <span>
+
+                  Fin estimée
+
+                </span>
+
+                <h4>
+
+                  {dateFin.toLocaleDateString("fr-FR")}
+
+                </h4>
+
+              </div>
+
+            </div>
+
+            <div className="row">
+
+              <FaClock className="icon"/>
+
+              <div>
+
+                <span>
+
+                  Temps restant
+
+                </span>
+
+                <h4>
+
+                  {joursRestants} jour(s)
+
+                </h4>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
         <div
-          className="progress-ring"
+
+          className="status-card"
+
           style={{
-            background: `conic-gradient(
-              #2563EB ${pourcentage * 3.6}deg,
-              #E5E7EB 0deg
-            )`
+
+            borderLeft: `8px solid ${couleur}`
+
           }}
+
         >
 
-          <div className="progress-center">
+          <strong>
 
-            <h2>{pourcentage}%</h2>
+            {statut}
 
-            <span>restant</span>
-
-          </div>
+          </strong>
 
         </div>
 
-        <h3>{joursRestants} jour(s)</h3>
+        <button
 
-        <p>avant la fin estimée</p>
+          className="primary-btn"
+
+          onClick={() => navigate("/tracking")}
+
+        >
+
+          <FaRedo/>
+
+          Nouvelle recharge
+
+        </button>
 
       </div>
-
-      <div className="info-card">
-
-        <div className="row">
-
-          <FaWallet className="icon"/>
-
-          <div>
-
-            <span>Montant</span>
-
-            <h4>{montant} FCFA</h4>
-
-          </div>
-
-        </div>
-
-        <div className="row">
-
-          <FaCalendarAlt className="icon"/>
-
-          <div>
-
-            <span>Date estimée de fin</span>
-
-            <h4>{dateFin.toLocaleDateString("fr-FR")}</h4>
-
-          </div>
-
-        </div>
-
-        <div className="row">
-
-          <FaClock className="icon"/>
-
-          <div>
-
-            <span>Temps restant</span>
-
-            <h4>{joursRestants} jour(s)</h4>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div
-        className="status-card"
-        style={{ borderLeft: `8px solid ${couleur}` }}
-      >
-
-        <strong>{statut}</strong>
-
-      </div>
-
-      <button
-        className="primary-btn"
-        onClick={() => navigate("/tracking")}
-      >
-
-        <FaRedo />
-
-        Nouvelle recharge
-
-      </button>
 
       <BottomNav/>
 

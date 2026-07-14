@@ -1,6 +1,6 @@
 .welcome{
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 
@@ -8,83 +8,111 @@ justify-content:center;
 
 align-items:center;
 
-background:#F4F8FD;
+padding:30px;
 
-padding:20px;
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(37,99,235,.08),
+
+rgba(56,189,248,.12)
+
+),
+
+var(--background);
+
+transition:.35s;
 
 }
 
-.card{
+.welcome-card{
 
-width:420px;
+max-width:500px;
 
-background:white;
+width:100%;
 
-border-radius:25px;
+background:var(--card);
 
-padding:40px;
+border-radius:30px;
 
-box-shadow:0 20px 40px rgba(0,0,0,.08);
+padding:50px;
 
 text-align:center;
 
+box-shadow:var(--shadow);
+
 animation:fade .8s;
 
+transition:.35s;
+
 }
 
-.welcomeLogo{
+.welcome-card:hover{
 
-width:170px;
+transform:translateY(-5px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.welcome-logo{
+
+width:180px;
+
+margin-bottom:30px;
+
+animation:float 2.5s ease-in-out infinite alternate;
+
+}
+
+.welcome-card h1{
+
+font-size:36px;
+
+color:var(--text);
 
 margin-bottom:20px;
 
 }
 
-.card h1{
+.welcome-card p{
 
-color:#2563EB;
+color:var(--text-light);
 
-margin-bottom:20px;
+line-height:32px;
 
-}
+margin-bottom:40px;
 
-.card p{
-
-line-height:30px;
-
-color:#555;
-
-margin-bottom:35px;
+font-size:17px;
 
 }
 
-.card button{
+.welcome-card button{
 
 width:100%;
 
 padding:18px;
 
-border:none;
-
-border-radius:15px;
-
-background:#2563EB;
-
-color:white;
-
 font-size:18px;
-
-font-weight:bold;
-
-transition:.3s;
 
 }
 
-.card button:hover{
+@keyframes float{
 
-transform:translateY(-3px);
+from{
 
-background:#1D4ED8;
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-12px);
+
+}
 
 }
 
@@ -94,7 +122,7 @@ from{
 
 opacity:0;
 
-transform:translateY(20px);
+transform:translateY(25px);
 
 }
 
@@ -103,6 +131,42 @@ to{
 opacity:1;
 
 transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.welcome{
+
+padding:20px;
+
+}
+
+.welcome-card{
+
+padding:35px 25px;
+
+}
+
+.welcome-logo{
+
+width:150px;
+
+}
+
+.welcome-card h1{
+
+font-size:28px;
+
+}
+
+.welcome-card p{
+
+font-size:15px;
+
+line-height:28px;
 
 }
 

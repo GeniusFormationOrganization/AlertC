@@ -10,37 +10,39 @@ export default defineConfig({
       registerType: "autoUpdate",
 
       includeAssets: [
-        "favicon.ico",
-        "logo.png"
+        "favicon.svg",
+        "icon-192.png",
+        "icon-512.png"
       ],
 
       manifest: {
         name: "AlertC",
         short_name: "AlertC",
-        description:
-          "Application de suivi du crédit d'électricité",
+        description: "Application de suivi du crédit d'électricité",
 
         theme_color: "#2563EB",
-        background_color: "#ffffff",
+        background_color: "#F4F8FD",
 
         display: "standalone",
-
         orientation: "portrait",
-
         start_url: "/",
 
         icons: [
           {
-            src: "/icon-192.png",
+            src: "icon-192.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/icon-512.png",
+            src: "icon-512.png",
             sizes: "512x512",
             type: "image/png"
           }
         ]
+      },
+
+      devOptions: {
+        enabled: true
       }
     })
   ]

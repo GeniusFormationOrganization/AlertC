@@ -2,13 +2,23 @@
 
     min-height:100vh;
 
-    background:#F4F8FD;
+    background:var(--background);
 
-    padding:30px 20px;
+    padding:120px 25px 110px;
+
+    transition:.35s;
 
 }
 
-.header{
+.dashboard-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.dashboard-header{
 
     display:flex;
 
@@ -16,41 +26,51 @@
 
     align-items:center;
 
-    margin-bottom:35px; 
+    margin-bottom:35px;
 
 }
 
-.header h3{
+.dashboard-header h1{
 
-    font-size:30px;
+    font-size:38px;
 
-    color:#1E293B;
+    color:var(--text);
 
-}
-
-.header p{
-
-    color:#64748B;
-
-    margin-top:5px;
+    margin-bottom:8px;
 
 }
 
-.logo-small{
+.dashboard-header p{
 
-    width:70px;
+    color:var(--text-light);
 
-    height:70px;
-
-    border-radius:50%;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    font-size:17px;
 
 }
+
+/* ==========================
+        GRID
+========================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================
+      PROGRESS CARD
+========================== */
 
 .progress-card{
 
-    background:white;
+    background:var(--card);
 
     border-radius:25px;
 
@@ -58,7 +78,7 @@
 
     text-align:center;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
 
     transition:.35s;
 
@@ -66,15 +86,17 @@
 
 .progress-card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
 
 }
 
 .progress-ring{
 
-    width:220px;
+    width:230px;
 
-    height:220px;
+    height:230px;
 
     border-radius:50%;
 
@@ -92,11 +114,11 @@
 
 .progress-center{
 
-    width:170px;
+    width:175px;
 
-    height:170px;
+    height:175px;
 
-    background:white;
+    background:var(--card);
 
     border-radius:50%;
 
@@ -110,49 +132,57 @@
 
 }
 
-.progress-center h1{
+.progress-center h2{
 
-    font-size:42px;
+    font-size:46px;
 
-    color:#2563EB;
+    color:var(--primary);
 
 }
 
 .progress-center span{
 
-    color:#64748B;
+    color:var(--text-light);
 
 }
 
-.progress-card h2{
+.progress-card h3{
+
+    font-size:34px;
 
     margin-top:10px;
-
-    font-size:32px;
-
-    color:#1E293B;
 
 }
 
 .progress-card p{
 
-    color:#64748B;
+    margin-top:10px;
 
-    margin-top:8px;
+    color:var(--text-light);
 
 }
 
+/* ==========================
+      INFO CARD
+========================== */
+
 .info-card{
 
-    background:white;
-
-    margin-top:25px;
+    background:var(--card);
 
     border-radius:25px;
 
-    padding:25px;
+    padding:30px;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:25px;
 
     transition:.35s;
 
@@ -160,7 +190,9 @@
 
 .info-card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-hover);
 
 }
 
@@ -170,25 +202,41 @@
 
     align-items:center;
 
-    margin:25px 0;
+    gap:20px;
 
 }
 
 .icon{
 
-    font-size:28px;
+    width:60px;
 
-    color:#2563EB;
+    height:60px;
 
-    margin-right:18px;
+    border-radius:16px;
+
+    background:rgba(37,99,235,.12);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    padding:18px;
 
 }
 
 .row span{
 
-    color:#64748B;
+    display:block;
 
-    font-size:15px;
+    color:var(--text-light);
+
+    font-size:14px;
 
 }
 
@@ -196,37 +244,39 @@
 
     margin-top:5px;
 
-    font-size:20px;
+    color:var(--text);
 
-    color:#1E293B;
+    font-size:22px;
 
 }
+
+/* ==========================
+      STATUS
+========================== */
 
 .status-card{
 
-    margin-top:25px;
+    background:var(--card);
 
-    background:white;
+    border-radius:22px;
 
-    border-radius:20px;
+    padding:25px;
 
-    padding:20px;
+    margin-bottom:30px;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
 
-}
-
-.status-card h3{
-
-    color:#1E293B;
+    font-size:18px;
 
 }
+
+/* ==========================
+      BUTTON
+========================== */
 
 .primary-btn{
 
     width:100%;
-
-    margin-top:30px;
 
     padding:18px;
 
@@ -234,7 +284,7 @@
 
     border-radius:18px;
 
-    background:linear-gradient(135deg,#2563EB,#38BDF8);
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
 
     color:white;
 
@@ -250,9 +300,7 @@
 
     gap:12px;
 
-    cursor:pointer;
-
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -260,33 +308,39 @@
 
     transform:translateY(-4px);
 
-    box-shadow:0 20px 35px rgba(37,99,235,.35);
+    box-shadow:0 20px 40px rgba(37,99,235,.30);
 
 }
+
+/* ==========================
+      EMPTY
+========================== */
 
 .empty-card{
 
-    max-width:450px;
+    background:var(--card);
 
-    margin:70px auto;
+    border-radius:28px;
 
-    background:white;
+    box-shadow:var(--shadow);
 
-    border-radius:25px;
+    max-width:520px;
 
-    padding:45px;
+    margin:80px auto;
+
+    padding:60px 40px;
 
     text-align:center;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-
 }
 
-.empty-logo{
+.empty-icon{
 
-    width:140px;
+    font-size:75px;
 
-    margin-bottom:25px;
+    color:var(--primary);
+
+    margin-bottom:20px;
 
 }
 
@@ -294,53 +348,161 @@
 
     margin-bottom:15px;
 
-    color:#2563EB;
-
 }
 
 .empty-card p{
 
-    color:#64748B;
+    line-height:30px;
 
-    line-height:28px;
+    margin-bottom:35px;
 
 }
 
-@media(max-width:600px){
+/* ==========================
+      TABLET
+========================== */
+
+@media(max-width:900px){
+
+.dashboard{
+
+padding-top:40px;
+
+}
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
 
 .progress-ring{
 
-width:180px;
+width:200px;
 
-height:180px;
+height:200px;
 
 }
 
 .progress-center{
 
-width:140px;
+width:150px;
 
-height:140px;
-
-}
-
-.progress-center h1{
-
-font-size:35px;
+height:150px;
 
 }
 
-.header h3{
+.progress-center h2{
 
-font-size:24px;
+font-size:38px;
 
 }
 
-.logo-small{
+.dashboard-header{
 
-width:60px;
+flex-direction:column;
 
-height:60px;
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+}
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:600px){
+
+.dashboard{
+
+padding:25px 18px 100px;
+
+}
+
+.dashboard-header h1{
+
+font-size:28px;
+
+}
+
+.dashboard-header p{
+
+font-size:15px;
+
+}
+
+.progress-card{
+
+padding:25px;
+
+}
+
+.progress-ring{
+
+width:170px;
+
+height:170px;
+
+}
+
+.progress-center{
+
+width:125px;
+
+height:125px;
+
+}
+
+.progress-center h2{
+
+font-size:32px;
+
+}
+
+.progress-card h3{
+
+font-size:28px;
+
+}
+
+.info-card{
+
+padding:22px;
+
+}
+
+.row{
+
+gap:15px;
+
+}
+
+.icon{
+
+width:50px;
+
+height:50px;
+
+font-size:20px;
+
+padding:14px;
+
+}
+
+.row h4{
+
+font-size:18px;
+
+}
+
+.primary-btn{
+
+font-size:16px;
+
+padding:16px;
 
 }
 

@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { FaWallet, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaWallet,
+  FaCalendarAlt,
+  FaClock,
+  FaHistory
+} from "react-icons/fa";
+
 import BottomNav from "../components/BottomNav";
 import "../styles/history.css";
 
@@ -9,7 +15,8 @@ function History() {
 
   useEffect(() => {
 
-    const data = JSON.parse(localStorage.getItem("historique")) || [];
+    const data =
+      JSON.parse(localStorage.getItem("historique")) || [];
 
     setHistorique(data);
 
@@ -19,78 +26,141 @@ function History() {
 
     <div className="history">
 
-      <h1>📈 Historique</h1>
+      <div className="history-container">
 
-      <p className="subtitle">
-        Toutes vos anciennes recharges.
-      </p>
+        <div className="history-header">
 
-      {
+          <h1>
 
-        historique.length === 0 ?
+            <FaHistory />
 
-        (
+            Historique
 
-          <div className="empty">
+          </h1>
 
-            <h2>Aucune recharge enregistrée</h2>
+          <p>
 
-            <p>
+            Consultez toutes vos anciennes recharges.
 
-              Vos prochaines recharges apparaîtront ici.
+          </p>
 
-            </p>
+        </div>
 
-          </div>
+        {
 
-        )
+          historique.length === 0 ?
 
-        :
+          (
 
-        (
+            <div className="empty">
 
-          historique.map((item,index)=>(
+              <FaHistory className="empty-icon"/>
 
-            <div
-              className="history-card"
-              key={index}
-            >
+              <h2>
 
-              <div className="history-row">
+                Aucun historique
 
-                <FaWallet className="icon"/>
+              </h2>
 
-                <div>
+              <p>
 
-                  <span>Montant</span>
+                Vos prochaines recharges apparaîtront ici.
 
-                  <h3>{item.montant} FCFA</h3>
-
-                </div>
-
-              </div>
-
-              <div className="history-row">
-
-                <FaCalendarAlt className="icon"/>
-
-                <div>
-
-                  <span>Date</span>
-
-                  <h3>{item.date}</h3>
-
-                </div>
-
-              </div>
+              </p>
 
             </div>
 
-          ))
+          )
 
-        )
+          :
 
-      }
+          (
+
+            historique.map((item,index)=>(
+
+              <div
+
+                className="history-card"
+
+                key={index}
+
+              >
+
+                <div className="history-item">
+
+                  <div className="icon-box">
+
+                    <FaWallet/>
+
+                  </div>
+
+                  <div>
+
+                    <span>Montant</span>
+
+                    <h3>
+
+                      {item.montant} FCFA
+
+                    </h3>
+
+                  </div>
+
+                </div>
+
+                <div className="history-item">
+
+                  <div className="icon-box">
+
+                    <FaCalendarAlt/>
+
+                  </div>
+
+                  <div>
+
+                    <span>Date</span>
+
+                    <h3>
+
+                      {item.date}
+
+                    </h3>
+
+                  </div>
+
+                </div>
+
+                <div className="history-item">
+
+                  <div className="icon-box">
+
+                    <FaClock/>
+
+                  </div>
+
+                  <div>
+
+                    <span>Heure</span>
+
+                    <h3>
+
+                      {item.heure}
+
+                    </h3>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))
+
+          )
+
+        }
+
+      </div>
 
       <BottomNav/>
 

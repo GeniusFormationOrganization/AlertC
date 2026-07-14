@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { FaBell } from "react-icons/fa";
+import {
+  FaBell,
+  FaExclamationTriangle,
+  FaClock
+} from "react-icons/fa";
+
 import BottomNav from "../components/BottomNav";
 import "../styles/alerts.css";
 
@@ -9,7 +14,8 @@ function Alerts() {
 
   useEffect(() => {
 
-    const data = JSON.parse(localStorage.getItem("alertes")) || [];
+    const data =
+      JSON.parse(localStorage.getItem("alertes")) || [];
 
     setAlertes(data);
 
@@ -19,64 +25,103 @@ function Alerts() {
 
     <div className="alerts">
 
-      <h1>🔔 Alertes</h1>
+      <div className="alerts-container">
 
-      <p className="subtitle">
+        <div className="alerts-header">
 
-        Retrouvez ici toutes les alertes reçues.
+          <h1>
 
-      </p>
+            <FaBell />
 
-      {
+            Alertes
 
-        alertes.length === 0 ?
+          </h1>
 
-        (
+          <p>
 
-          <div className="empty">
+            Consultez toutes les notifications importantes concernant votre crédit.
 
-            <FaBell className="empty-icon"/>
+          </p>
 
-            <h2>Aucune alerte</h2>
+        </div>
 
-            <p>
+        {
 
-              Les alertes apparaîtront ici lorsqu'elles seront déclenchées.
+          alertes.length === 0 ?
 
-            </p>
+          (
 
-          </div>
+            <div className="empty">
 
-        )
+              <FaBell className="empty-icon"/>
 
-        :
+              <h2>
 
-        (
+                Aucune alerte
 
-          alertes.map((alerte,index)=>(
+              </h2>
 
-            <div
-              className="alert-card"
-              key={index}
-            >
+              <p>
 
-              <FaBell className="bell"/>
+                Les alertes apparaîtront automatiquement lorsqu'une recharge approchera de sa fin.
 
-              <div>
-
-                <h3>{alerte.message}</h3>
-
-                <span>{alerte.date}</span>
-
-              </div>
+              </p>
 
             </div>
 
-          ))
+          )
 
-        )
+          :
 
-      }
+          (
+
+            alertes.map((alerte,index)=>(
+
+              <div
+
+                className="alert-card"
+
+                key={index}
+
+              >
+
+                <div className="alert-icon">
+
+                  <FaExclamationTriangle/>
+
+                </div>
+
+                <div className="alert-content">
+
+                  <h3>
+
+                    {alerte.message}
+
+                  </h3>
+
+                  <div className="alert-date">
+
+                    <FaClock/>
+
+                    <span>
+
+                      {alerte.date}
+
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))
+
+          )
+
+        }
+
+      </div>
 
       <BottomNav/>
 
